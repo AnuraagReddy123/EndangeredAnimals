@@ -348,10 +348,6 @@ GameObject:
   - component: {fileID: 1524873823}
   - component: {fileID: 1524873822}
   - component: {fileID: 1524873826}
-<<<<<<< HEAD
-  - component: {fileID: 1524873827}
-=======
->>>>>>> 15e2021 (added collectible items)
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -480,36 +476,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1524873821}
   m_Enabled: 1
   m_EditorHideFlags: 0
-<<<<<<< HEAD
-  m_Script: {fileID: 11500000, guid: 12870af4c8d45b5449579b4e43627157, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
-  jumpForce: 5
---- !u!95 &1524873827
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1524873821}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 43cdc0c0dce85a741affcc718f95b3a2, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
-=======
   m_Script: {fileID: 11500000, guid: 6aed4ea034d564545b889e787711b93f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
->>>>>>> 15e2021 (added collectible items)
 --- !u!1 &1703503331
 GameObject:
   m_ObjectHideFlags: 0
