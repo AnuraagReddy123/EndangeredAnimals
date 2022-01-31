@@ -5,7 +5,7 @@ using UnityEngine;
 public class WaypointFollower : MonoBehaviour
 {
     [SerializeField] private GameObject[] waypoints;
-    private int currentWayPointIndex = 1;
+    private int currentWayPointIndex = 0;
     private SpriteRenderer sprite;
 
     private void Start()
@@ -17,7 +17,7 @@ public class WaypointFollower : MonoBehaviour
     {
         if(Vector2.Distance(waypoints[currentWayPointIndex].transform.position,transform.position) < .1f)
         {
-            if(currentWayPointIndex == 1)
+            if(currentWayPointIndex == 0)
             {
                 sprite.flipX = true;
             }
