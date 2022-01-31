@@ -1,33 +1,29 @@
 using System;
-using System.Threading;
 using System.Threading.Tasks;
 using UnityEngine;
 
 public class hunterMovement : MonoBehaviour
 {
-    public Rigidbody2D hunter;
-    public BoxCollider2D hunterBoxCollider;
-    public GameObject ground;
-    public GameObject player;
-    public Collision2D coll;
-    public LayerMask platformLayer;
-    public Animator anim;
-    public float initialX;
-    public int direction;
-    public int distance;
-    public float speed;
+    private Rigidbody2D hunter;
+    private BoxCollider2D hunterBoxCollider;
+    [SerializeField] private GameObject ground;
+    [SerializeField] private GameObject player;
+    [SerializeField] private LayerMask platformLayer;
+    private Animator anim;
+    [SerializeField] private float speed;       // Speed of hunter
+    [SerializeField] private float minDistance;  // if player comes closer to hunter beyond this distance, then the hunter will kill player.
+
+
     // Start is called before the first frame update
     void Start()
     {
         hunter = GetComponent<Rigidbody2D>();
         hunterBoxCollider = GetComponent<BoxCollider2D>();
         anim = GetComponent<Animator>();
-        initialX = transform.position.x;
-        direction = 1;
-        distance = 5;
-        speed = -5;
+        Physics.IgnoreLayerCollision(7, 7);  // To ignore collisions between hunters.
     }
 
+    // To check if the hunter is on ground or not
     public bool isGrounded()
     {
         float extraHeight = 1f;
@@ -36,6 +32,7 @@ public class hunterMovement : MonoBehaviour
         return rayCastHit.collider != null;
     }
 
+    // To check if wall is present in front of hunter, so that he can change direction
     public bool haveWallInFront()
     {
         //Debug.Log("wall");
@@ -49,17 +46,17 @@ public class hunterMovement : MonoBehaviour
     {
         if (!isGrounded() || haveWallInFront())
         {
-            Debug.Log("if");
+            //Debug.Log("if");
             transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
             speed *= -1;
             transform.position = new Vector3(transform.position.x + (speed / (Math.Abs(speed))) * (0.1f), transform.position.y, transform.position.z);
         }
 
         hunter.velocity = new Vector2(speed, 0);
-
-        if (Math.Abs(transform.position.x - player.transform.position.x) <= 3f && (transform.position.x - player.transform.position.x) * (hunter.velocity.x) < 0)
+        Debug.Log(Vector3.Distance(transform.position, player.transform.position));
+        if (Vector3.Distance(transform.position, player.transform.position) <= minDistance && (transform.position.x - player.transform.position.x) * (hunter.velocity.x) < 0)
         {
-            Debug.Log("Yes");
+            
             anim.SetBool("attack", true);
             Vector2 v = hunter.velocity;
             hunter.velocity = new Vector2(0, 0);
