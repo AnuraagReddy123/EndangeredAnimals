@@ -7,7 +7,6 @@ public class Player : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float jumpForce;
     private Rigidbody2D body;
-    private BoxCollider2D collider;
     private Animator anim;
     private bool isGrounded;
 
@@ -15,7 +14,6 @@ public class Player : MonoBehaviour
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
-        collider = GetComponent<BoxCollider2D>();
         anim = GetComponent<Animator>();
     }
 
@@ -47,6 +45,13 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        isGrounded = true;
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = true;
+        }
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            gameObject.SetActive(false);
+        }
     }
 }
