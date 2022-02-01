@@ -6,7 +6,6 @@ public class hunterMovement : MonoBehaviour
 {
     private Rigidbody2D hunter;
     private BoxCollider2D hunterBoxCollider;
-    [SerializeField] private GameObject ground;
     [SerializeField] private GameObject player;
     [SerializeField] private LayerMask platformLayer;
     private Animator anim;
@@ -46,17 +45,17 @@ public class hunterMovement : MonoBehaviour
     {
         if (!isGrounded() || haveWallInFront())
         {
-            //Debug.Log("if");
+            Debug.Log("if : " + speed);
             transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
             speed *= -1;
             transform.position = new Vector3(transform.position.x + (speed / (Math.Abs(speed))) * (0.1f), transform.position.y, transform.position.z);
         }
 
         hunter.velocity = new Vector2(speed, 0);
-        Debug.Log(Vector3.Distance(transform.position, player.transform.position));
+        // Debug.Log(Vector3.Distance(transform.position, player.transform.position));
         if (Vector3.Distance(transform.position, player.transform.position) <= minDistance && (transform.position.x - player.transform.position.x) * (hunter.velocity.x) < 0)
         {
-            
+            Debug.Log("turning");
             anim.SetBool("attack", true);
             Vector2 v = hunter.velocity;
             hunter.velocity = new Vector2(0, 0);

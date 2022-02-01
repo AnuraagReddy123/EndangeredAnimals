@@ -37,7 +37,7 @@ public class Player : MonoBehaviour
 
         // Setting animation parameters
         anim.SetBool("walk", horizontalInput != 0);
-        Debug.Log("value of isGrounded" + isGrounded());
+        // Debug.Log("value of isGrounded" + isGrounded());
     }
 
     private void Jump()
