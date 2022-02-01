@@ -9,14 +9,14 @@ public class Player : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     private Rigidbody2D body;
     private Animator anim;
-    private BoxCollider2D boxCollider;
+    private PolygonCollider2D polygonCollider;
 
     // Start is called before the first frame update
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        boxCollider = GetComponent<BoxCollider2D>();
+        polygonCollider = GetComponent<PolygonCollider2D>();
     }
 
     // Update is called once per frame
@@ -56,7 +56,7 @@ public class Player : MonoBehaviour
 
     private bool isGrounded()
     {
-        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.1f, groundLayer);
+        RaycastHit2D raycastHit = Physics2D.BoxCast(polygonCollider.bounds.center, polygonCollider.bounds.size, 0, Vector2.down, 0.1f, groundLayer);
         return raycastHit.collider != null;
     }
 }
