@@ -1098,6 +1098,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f20c5217f64b3b45bbbed77ffc20cb7, type: 3}
+--- !u!1 &1565111318 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9052111420426205106, guid: 556d6eec378b8f446806ac895fdb5277, type: 3}
+  m_PrefabInstance: {fileID: 271713859}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1599056945 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4444178412820586468, guid: d0e7bda2d830c7143986a05a0334abc2, type: 3}
@@ -5680,7 +5685,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1978911191}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.10714722, y: 0.05269456, z: -10}
+  m_LocalPosition: {x: 1.5171595, y: 0.05269456, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5921,7 +5926,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 652150c65c6bacb45bfe1846c73e76ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 1565111318}
   platformLayer:
     serializedVersion: 2
     m_Bits: 64

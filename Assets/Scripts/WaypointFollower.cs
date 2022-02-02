@@ -8,12 +8,12 @@ public class WaypointFollower : MonoBehaviour
     private int currentWayPointIndex = 0;
     private SpriteRenderer sprite;
 
-    private void Start()
+    public void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
     }
     [SerializeField] private float speed = 2f;
-    private void Update()
+    public void Update()
     {
         if(Vector2.Distance(waypoints[currentWayPointIndex].transform.position,transform.position) < .1f)
         {
