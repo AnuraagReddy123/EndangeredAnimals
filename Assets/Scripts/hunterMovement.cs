@@ -25,8 +25,8 @@ public class hunterMovement : MonoBehaviour
     // To check if the hunter is on ground or not
     public bool isGrounded()
     {
-        float extraHeight = 1f;
-        Vector3 v = new Vector3(hunterBoxCollider.bounds.center.x + (speed / (Math.Abs(speed))) * 1, hunterBoxCollider.bounds.center.y, hunterBoxCollider.bounds.center.z);
+        float extraHeight = 0.5f;
+        Vector3 v = new Vector3(hunterBoxCollider.bounds.center.x + (speed / (Math.Abs(speed)))*0.3f, hunterBoxCollider.bounds.center.y, hunterBoxCollider.bounds.center.z);
         RaycastHit2D rayCastHit = Physics2D.Raycast(v, Vector2.down, hunterBoxCollider.bounds.extents.y + extraHeight, platformLayer);
         return rayCastHit.collider != null;
     }
@@ -41,21 +41,21 @@ public class hunterMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    async void FixedUpdate()
+    async public void Update()
     {
         if (!isGrounded() || haveWallInFront())
         {
-            Debug.Log("if : " + speed);
+            //Debug.Log("if : " + speed);
             transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
             speed *= -1;
             transform.position = new Vector3(transform.position.x + (speed / (Math.Abs(speed))) * (0.1f), transform.position.y, transform.position.z);
         }
 
         hunter.velocity = new Vector2(speed, 0);
-        // Debug.Log(Vector3.Distance(transform.position, player.transform.position));
-        if (Vector3.Distance(transform.position, player.transform.position) <= minDistance && (transform.position.x - player.transform.position.x) * (hunter.velocity.x) < 0)
+        //Debug.Log(speed);
+        if (Math.Abs(transform.position.x - player.transform.position.x) <= minDistance && Math.Abs(transform.position.y - player.transform.position.y) <= 0.2f && (transform.position.x - player.transform.position.x) * (hunter.velocity.x) < 0)
         {
-            Debug.Log("turning");
+            //Debug.Log("turning");
             anim.SetBool("attack", true);
             Vector2 v = hunter.velocity;
             hunter.velocity = new Vector2(0, 0);

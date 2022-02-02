@@ -27,9 +27,9 @@ public class Player : MonoBehaviour
         // Movement left and right
         body.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, body.velocity.y);
         if (horizontalInput > 0.01f)
-            transform.localScale = new Vector2(-1, 1);
+            transform.localScale = new Vector2(-0.5f, 0.5f);
         else if (horizontalInput < -0.01f)
-            transform.localScale = Vector2.one;
+            transform.localScale = new Vector2(0.5f, 0.5f);
 
         // Jumping
         if (Input.GetKey(KeyCode.Space) && isGrounded())
