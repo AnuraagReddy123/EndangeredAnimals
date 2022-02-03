@@ -14,8 +14,7 @@ GameObject:
   - component: {fileID: 9052111420426205069}
   - component: {fileID: 9052111420426205068}
   - component: {fileID: 9052111420426205067}
-  - component: {fileID: 2219053822724399608}
-  - component: {fileID: 27422428}
+  - component: {fileID: 5456963398701372769}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -162,7 +161,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!61 &2219053822724399608
+--- !u!61 &5456963398701372769
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
