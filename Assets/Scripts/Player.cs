@@ -1,19 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
     [SerializeField] private float speed;
     [SerializeField] private float jumpForce;
     [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private GameObject end;
+    [SerializeField] private GameObject playerUI;
     private Rigidbody2D body;
     private Animator anim;
     private BoxCollider2D boxCollider;
-
+    private AudioSource footsteps;
     // Start is called before the first frame update
     void Start()
     {
+        footsteps = GetComponent<AudioSource>();
         body = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider2D>();
@@ -38,6 +42,12 @@ public class Player : MonoBehaviour
         // Setting animation parameters
         anim.SetBool("walk", horizontalInput != 0);
         // Debug.Log("value of isGrounded" + isGrounded());
+
+        if(end.transform.position.x - transform.position.x <= 0)
+        {
+            playerUI.SetActive(false);
+            FindObjectOfType<GameManager>().EndGame();
+        }
     }
 
     private void Jump()
@@ -50,7 +60,13 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
+            SceneManager.LoadScene("GameOver");
             gameObject.SetActive(false);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+        if (collision.gameObject.CompareTag("Collider"))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 
@@ -58,5 +74,13 @@ public class Player : MonoBehaviour
     {
         RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.1f, groundLayer);
         return raycastHit.collider != null;
+    }
+
+    public void Footstep()
+    {
+        if (isGrounded())
+        {
+            footsteps.Play();
+        }
     }
 }

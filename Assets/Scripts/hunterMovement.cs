@@ -53,9 +53,9 @@ public class hunterMovement : MonoBehaviour
 
         hunter.velocity = new Vector2(speed, 0);
         //Debug.Log(speed);
-        if (Math.Abs(transform.position.x - player.transform.position.x) <= minDistance && Math.Abs(transform.position.y - player.transform.position.y) <= 0.2f && (transform.position.x - player.transform.position.x) * (hunter.velocity.x) < 0)
+        /*if (Math.Abs(transform.position.x - player.transform.position.x) <= minDistance && Math.Abs(transform.position.y - player.transform.position.y) <= 0.2f && (transform.position.x - player.transform.position.x) * (hunter.velocity.x) < 0)
         {
-            //Debug.Log("turning");
+            Debug.Log("turning");
             anim.SetBool("attack", true);
             Vector2 v = hunter.velocity;
             hunter.velocity = new Vector2(0, 0);
@@ -64,7 +64,7 @@ public class hunterMovement : MonoBehaviour
             player.transform.position = new Vector3(-100, 0, 0);
             hunter.velocity = new Vector2(v[0], v[1]);
             anim.SetBool("attack", false);
-        }
+        }*/
 
     }
 
