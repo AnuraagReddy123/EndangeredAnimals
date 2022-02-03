@@ -51,6 +51,5 @@ Link to the game: https://simmer.io/@AVortex74/save-hyenas
 
 ## Technologies Used
 
-Tools: Unity and Visual Studio
-
+Tools: Unity and Visual Studio \
 Languages: C#
