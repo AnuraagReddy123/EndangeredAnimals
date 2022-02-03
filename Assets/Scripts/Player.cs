@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
     [SerializeField] private float speed;
     [SerializeField] private float jumpForce;
     [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private GameObject end;
+    [SerializeField] private GameObject playerUI;
     private Rigidbody2D body;
     private Animator anim;
     private BoxCollider2D boxCollider;
@@ -27,9 +30,9 @@ public class Player : MonoBehaviour
         // Movement left and right
         body.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, body.velocity.y);
         if (horizontalInput > 0.01f)
-            transform.localScale = new Vector2(-1, 1);
+            transform.localScale = new Vector2(-0.5f, 0.5f);
         else if (horizontalInput < -0.01f)
-            transform.localScale = Vector2.one;
+            transform.localScale = new Vector2(0.5f, 0.5f);
 
         // Jumping
         if (Input.GetKey(KeyCode.Space) && isGrounded())
@@ -38,6 +41,12 @@ public class Player : MonoBehaviour
         // Setting animation parameters
         anim.SetBool("walk", horizontalInput != 0);
         // Debug.Log("value of isGrounded" + isGrounded());
+
+        if(end.transform.position.x - transform.position.x <= 0)
+        {
+            playerUI.SetActive(false);
+            FindObjectOfType<GameManager>().EndGame();
+        }
     }
 
     private void Jump()
@@ -51,6 +60,7 @@ public class Player : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             gameObject.SetActive(false);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 

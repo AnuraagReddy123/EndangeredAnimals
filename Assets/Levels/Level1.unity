@@ -316,12 +316,12 @@ Transform:
 --- !u!4 &1058867439 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2858324248273423309, guid: 78310509601f8404e9dda64eef810a1a, type: 3}
-  m_PrefabInstance: {fileID: 2858324247215080226}
+  m_PrefabInstance: {fileID: 2112671803796953767}
   m_PrefabAsset: {fileID: 0}
 --- !u!60 &1058867442 stripped
 PolygonCollider2D:
   m_CorrespondingSourceObject: {fileID: 2858324248273423312, guid: 78310509601f8404e9dda64eef810a1a, type: 3}
-  m_PrefabInstance: {fileID: 2858324247215080226}
+  m_PrefabInstance: {fileID: 2112671803796953767}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1077211427 stripped
 MonoBehaviour:
@@ -6761,7 +6761,7 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1001 &2858324247215080226
+--- !u!1001 &2112671803796953767
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
