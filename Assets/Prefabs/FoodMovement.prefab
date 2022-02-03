@@ -106,7 +106,6 @@ GameObject:
   - component: {fileID: 4888243039575782987}
   - component: {fileID: 4888243039575782966}
   - component: {fileID: 5381762367529167413}
-  - component: {fileID: 4888243039522678041}
   m_Layer: 0
   m_Name: Food
   m_TagString: Food
@@ -225,22 +224,6 @@ BoxCollider2D:
   m_Size: {x: 1.8649144, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &5381762367529167413
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4888243039575782986}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a3c819b6c8f28241829065aa15b7bfe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waypoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  speed: 2
---- !u!114 &4888243039522678041
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
