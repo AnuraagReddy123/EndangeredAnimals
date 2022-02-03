@@ -13,10 +13,11 @@ public class Player : MonoBehaviour
     private Rigidbody2D body;
     private Animator anim;
     private BoxCollider2D boxCollider;
-
+    private AudioSource footsteps;
     // Start is called before the first frame update
     void Start()
     {
+        footsteps = GetComponent<AudioSource>();
         body = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider2D>();
@@ -59,7 +60,12 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
+            SceneManager.LoadScene("GameOver");
             gameObject.SetActive(false);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+        if (collision.gameObject.CompareTag("Collider"))
+        {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
@@ -68,5 +74,13 @@ public class Player : MonoBehaviour
     {
         RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.1f, groundLayer);
         return raycastHit.collider != null;
+    }
+
+    public void Footstep()
+    {
+        if (isGrounded())
+        {
+            footsteps.Play();
+        }
     }
 }
