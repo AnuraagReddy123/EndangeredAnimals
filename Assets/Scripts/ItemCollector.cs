@@ -12,7 +12,7 @@ public class ItemCollector : MonoBehaviour
     [SerializeField] private TextMeshProUGUI CurrentLevel;
     private SpriteRenderer sprite;
     private float dirX = -1f;
-    private int cherries = 0;
+    private int collectibles = 0;
 
     private void Start()
     {
@@ -27,13 +27,14 @@ public class ItemCollector : MonoBehaviour
 
     }
 
+    // if player hits the food, make the food disappear
     private void OnTriggerEnter2D(Collider2D collison)
     {
         if(collison.gameObject.CompareTag("Food"))
         {
             Destroy(collison.gameObject);
-            cherries += 1;
-            score.text = cherries.ToString();
+            collectibles += 1;
+            score.text = collectibles.ToString();
             Finalscore.text = score.text;
         }
     }

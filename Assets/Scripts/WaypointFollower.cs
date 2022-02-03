@@ -15,6 +15,7 @@ public class WaypointFollower : MonoBehaviour
     [SerializeField] private float speed = 2f;
     public void Update()
     {
+        // if the distance of food is close enough to waypoint, flip the direction of the snake
         if(Vector2.Distance(waypoints[currentWayPointIndex].transform.position,transform.position) < .1f)
         {
             if(currentWayPointIndex == 0)
