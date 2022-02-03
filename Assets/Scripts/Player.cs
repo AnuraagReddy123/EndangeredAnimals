@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     private Rigidbody2D body;
     private Animator anim;
     private BoxCollider2D boxCollider;
-    private AudioSource footsteps;
+    private AudioSource footsteps;// object for playing the audio sound of footsteps
     // Start is called before the first frame update
     void Start()
     {
@@ -76,11 +76,13 @@ public class Player : MonoBehaviour
         return raycastHit.collider != null;
     }
 
+
+    // Make footstep noise when player is on the ground
     public void Footstep()
     {
         if (isGrounded())
         {
-            footsteps.Play();
+            footsteps.Play();// PLay the sound
         }
     }
 }
