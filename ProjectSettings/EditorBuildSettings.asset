@@ -15,11 +15,17 @@ EditorBuildSettings:
     path: Assets/Levels/Level2.unity
     guid: 5b2e57faaaef9b943a5d1a2524598d5f
   - enabled: 1
+    path: Assets/Levels/Level3.unity
+    guid: 3027251b554f3ee46b82d9453de59c66
+  - enabled: 1
     path: Assets/Levels/Level4.unity
     guid: 9b0bc2d2e4275634f8c1c11c17242731
   - enabled: 1
     path: Assets/Levels/Level5.unity
     guid: 910fb2f313c0925449979e97cd2a195f
+  - enabled: 1
+    path: Assets/Levels/TheEnd.unity
+    guid: 1a1f5a2bc9c431b49a45e0960b86ad07
   - enabled: 1
     path: Assets/Levels/AllLevels.unity
     guid: d1278a84d04c5184895d3d5180ae5ecb
