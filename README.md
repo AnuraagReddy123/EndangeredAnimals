@@ -47,3 +47,4 @@ attacked by any human and also eats enough so that it can stay alive. The hard l
 are trying to show how this animals need to be protected otherwise they will go extinct.
 
 
+Link to the game: https://simmer.io/@AVortex74/save-hyenas
