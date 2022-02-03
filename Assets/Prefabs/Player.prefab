@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 9052111420426205069}
   - component: {fileID: 9052111420426205068}
   - component: {fileID: 9052111420426205067}
-  - component: {fileID: 2219053822724399608}
+  - component: {fileID: 5456963398701372769}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -120,6 +120,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6aed4ea034d564545b889e787711b93f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  score: {fileID: 0}
+  Finalscore: {fileID: 0}
+  CurrentLevel: {fileID: 0}
 --- !u!114 &9052111420426205068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,6 +140,8 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  end: {fileID: 0}
+  playerUI: {fileID: 0}
 --- !u!95 &9052111420426205067
 Animator:
   serializedVersion: 3
@@ -156,7 +161,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!61 &2219053822724399608
+--- !u!61 &5456963398701372769
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

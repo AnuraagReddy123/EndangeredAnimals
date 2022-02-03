@@ -62,6 +62,10 @@ public class Player : MonoBehaviour
             gameObject.SetActive(false);
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
+        if (collision.gameObject.CompareTag("Collider"))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
 
     private bool isGrounded()
